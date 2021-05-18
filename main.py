@@ -1,5 +1,14 @@
 from tkinter import *
 
+global questions_answers
+names = []
+asked = []
+score = 0
+
+bgc = "#2E5BDE"
+tbc = "#FCEDC0"
+cbc = "#9FC5E8"
+
 class OpenWindow:
 
   def NameList(self):
