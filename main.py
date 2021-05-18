@@ -1,11 +1,13 @@
 from tkinter import *
 import random
 
+#global variables
 global AnswerBank
 names = []
 asked = []
 score = 0
 
+#colour set
 bgc = "#2E5BDE"
 tbc = "#FCEDC0"
 cbc = "#9FC5E8"
@@ -33,6 +35,7 @@ AnswerBank = {
     ]
 }
 
+#class to control window for questions
 class QuizWindow:
     def __init__(self, parent):
 
@@ -62,7 +65,7 @@ class QuizWindow:
       self.score_label = Label(self.quiz_frame, text="Score", bg=bgc)
       self.score_label.grid(row=8, padx=10, pady=1)
 
-
+#class to create the home/main window
 class OpenWindow:
 
   def NameList(self):
@@ -89,6 +92,7 @@ class OpenWindow:
     self.ContinueButton = Button(self.OpenFrame, text="Continue", command=self.NameList, bg=cbc)
     self.ContinueButton.grid(row=3, padx=20, pady=20)
 
+#function to control answer buttons and qustion
 def questions_setup(self):
   randomiser()
   self.var1.set(0)
@@ -98,6 +102,7 @@ def questions_setup(self):
   self.rb3.config(text = AnswerBank[qnum][3])
   self.rb4.config(text = AnswerBank[qnum][4])
 
+#function to randomise question order
 def randomiser():
     global qnum
     qnum = random.randint(1, 10)
@@ -106,6 +111,7 @@ def randomiser():
     elif qnum in asked:
         randomiser()
 
+#function to open first window on program launch
 if __name__ == "__main__":
   root = Tk() 
   root.title("PlaceHolder")
