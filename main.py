@@ -89,6 +89,15 @@ class OpenWindow:
     self.ContinueButton = Button(self.OpenFrame, text="Continue", command=self.NameList, bg=cbc)
     self.ContinueButton.grid(row=3, padx=20, pady=20)
 
+def questions_setup(self):
+  randomiser()
+  self.var1.set(0)
+  self.question_label.congfig(text = AnswerBank[qnum][0])
+  self.rb1.config(text = AnswerBank[qnum][1])
+  self.rb2.config(text = AnswerBank[qnum][2])
+  self.rb3.config(text = AnswerBank[qnum][3])
+  self.rb4.config(text = AnswerBank[qnum][4])
+
 def randomiser():
     global qnum
     qnum = random.randint(1, 10)
