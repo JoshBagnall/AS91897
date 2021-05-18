@@ -2,6 +2,13 @@ from tkinter import *
 
 class OpenWindow:
 
+  def NameList(self):
+    name = self.InputBox.get()
+    names.append(name)
+    print (names)
+    #self.quiz_frame.destroy()
+    #Quiz(root)
+
   def __init__(self, parent):
 
     self.OpenFrame = Frame(parent, bg=bgc, padx=400, pady=180)
