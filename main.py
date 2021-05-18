@@ -1,4 +1,5 @@
 from tkinter import *
+import random
 
 global AnswerBank
 names = []
@@ -87,6 +88,14 @@ class OpenWindow:
 
     self.ContinueButton = Button(self.OpenFrame, text="Continue", command=self.NameList, bg=cbc)
     self.ContinueButton.grid(row=3, padx=20, pady=20)
+
+def randomiser():
+    global qnum
+    qnum = random.randint(1, 10)
+    if qnum not in asked:
+        asked.append(qnum)
+    elif qnum in asked:
+        randomiser()
 
 if __name__ == "__main__":
   root = Tk() 
