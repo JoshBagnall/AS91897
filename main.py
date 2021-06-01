@@ -12,6 +12,7 @@ bgc = "#2E5BDE"
 tbc = "#FCEDC0"
 cbc = "#9FC5E8"
 
+#disctionary containing lists for questions and answers
 AnswerBank = {
     1: ["question1","answer1-1","answer1-2","answer1-3","answer1-4","correctanswer",3
     ],
@@ -37,9 +38,32 @@ AnswerBank = {
 
 #class to control window for questions
 class QuizWindow:
+  
     def TestProgress(self):
       global score
-      ScoreLabel = self.ScoreLabel
+      ScoreDisplay = self.ScoreLabel
+      choice = self.var1.get()
+      if len(asked) > 9:
+        if choice == AnswerBank[qnum][6]:
+          score += 1
+          ScoreDisplay.configure(text = score)
+          self.QuizInstance.config(text = score)
+          #self.EndScreen()
+        else:
+          print(choice)
+          score += 0
+          ScoreDisplay.configure(text = "The correct answer was: " + AnswerBank[qnum][5])
+          self.QuizInstance.config(text = "Confirm")
+          #self.EndScreen()
+      else:
+        if choice == 0:
+          self.QuizInstance.config(text = "Try Again, You didn't select an option")
+          choice = self.var1.get()
+        else:
+          print(choice)
+          score += 0
+          ScoreDisplay.configure(text = "The correct answer was: " + AnswerBank[qnum][5])
+          self.QuizInstance.config(text = "Confirm")
 
     def __init__(self, parent):
 
@@ -94,8 +118,20 @@ class ExitProgram:
     self.CancelButton = Button(self.CloseFrame, text = "Cancel", bg = cbc, command = self.Cancel, width = 10, height = 1)
     self.CancelButton.place(x = 0, y = 60)
 
+#class to display players highscores
+class HighScorePage:
+
+  def __init__(self, parent):
+
+    self.ScoreFrame = Frame(parent, bg = bgc, padx = 300, pady = 200)
+    self.ScoreFrame.grid()
+
 #class to create the home/main window
 class OpenWindow:
+
+  def HighscoreOpener(self):
+    self.OpenFrame.destroy()
+    HighScorePage(root)
 
   def CloseProgram(self):
     self.OpenFrame.destroy()
