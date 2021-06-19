@@ -150,20 +150,8 @@ class ExitProgram:
     self.cancel_button = Button(self.close_frame, text = "Cancel", bg = cbc, command = self.Cancel, width = 10, height = 1)
     self.cancel_button.place(x = 0, y = 60)
 
-#class to display players highscores
-class HighscorePage:
-
-  def __init__(self, parent):
-
-    self.score_frame = Frame(parent, bg = bgc, padx = 300, pady = 200)
-    self.score_frame.grid()
-
 #class to create the home/main window
 class OpenWindow:
-
-  def HighscoreOpener(self):
-    self.open_frame.destroy()
-    HighscorePage(root)
 
   def CloseProgram(self):
     self.open_frame.destroy()
