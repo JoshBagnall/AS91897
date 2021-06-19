@@ -179,10 +179,7 @@ class OpenWindow:
     self.input_box.grid(row = 2, padx = 20, pady = 20)
 
     self.continue_button = Button(self.open_frame, text = "Play", command = self.NameList, bg = cbc)
-    self.continue_button.place(width = 75, height = 30, x = 115, y = 140)
-
-    self.highscore_button = Button(self.open_frame, text = "Highscore", bg = cbc)
-    self.highscore_button.place(width = 75, height = 30, x = -15, y = 140)
+    self.continue_button.place(width = 75, height = 30, x = 50, y = 140)
     
     self.exit_button = Button(self.open_frame, text = "Exit", bg = cbc, command = self.CloseProgram)
     self.exit_button.place(width = 75, height = 30, x = 50, y = 190)
