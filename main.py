@@ -195,7 +195,7 @@ class OpenWindow:
     self.open_frame = Frame(parent, background = background_colour, padx = 300, pady = 200)
     self.open_frame.grid()
 
-    self.heading = Label(self.open_frame, text = "PlaceHolder", background = text_box_colour, borderwidth = 2, relief = "raised", height = 3, width = 40)
+    self.heading = Label(self.open_frame, text = "NCEA Level 2 Mechanics Quiz", background = text_box_colour, borderwidth = 2, relief = "raised", height = 3, width = 40)
     self.heading.place(x = -50, y = -75)
 
     self.name_input_label = Label(self.open_frame, text = "Please Enter Your Name", background = text_box_colour, borderwidth = 2, relief = "raised", height = 2, width = 20)
@@ -234,6 +234,6 @@ randomiser()
 #function to open first window on program launch
 if __name__ == "__main__":
   root = Tk()
-  root.title("PlaceHolder")
+  root.title("NCEA Level 2 Mechanics Quiz")
   main_tab = OpenWindow(root)
   root.mainloop()
