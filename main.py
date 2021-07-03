@@ -15,21 +15,74 @@ button_colour = "#9FC5E8"
 
 #disctionary containing lists for questions and answers.
 answer_bank = {
-    1: ["What is the correct formula for calculating speed?", "s = Δa/Δt", "s = Δv/Δt", "s = Δd/Δt", "s = Δt/Δd", "s = Δd/Δt", 3
+    1: [
+      "What is the correct formula for calculating speed?",
+      "s = Δa/Δt",
+      "s = Δv/Δt",
+      "s = Δd/Δt",
+      "s = Δt/Δd",
+      "s = Δd/Δt",
+      3
     ],
-    2: ["How do you calculate momentum?", "Force x distance", "Mass x velocity", "Mass x acceleration", "Velocity / radius", "Mass x velocity", 2
+    2: [
+      "How do you calculate momentum?",
+      "Force x distance",
+      "Mass x velocity",
+      "Mass x acceleration",
+      "Velocity / radius",
+      "Mass x velocity",
+      2
     ],
-    3: ["What is velocity?", "A vector quantity", "A scalar quantity", "A measurement of time", "The same as Speed", "A vector quantity", 1
+    3: [
+      "What is velocity?",
+      "A vector quantity",
+      "A scalar quantity",
+      "A measurement of time",
+      "The same as Speed",
+      "A vector quantity",
+      1
     ],
-    4: ["What is the value of g?", "12m/s", "9.8Km/h", "3.6m/s", "9.8m/s", "9.8m/s", 4
+    4: [
+      "What is the value of g?",
+      "12m/s",
+      "9.8Km/h",
+      "3.6m/s",
+      "9.8m/s",
+      "9.8m/s",
+      4
     ],
-    5: ["What is the formula for torque?", "t = mv", "t = -kx", "t = Fd", "t = FΔt", "t = Fd", 3
+    5: [
+      "What is the formula for torque?",
+      "t = mv",
+      "t = -kx",
+      "t = Fd",
+      "t = FΔt",
+      "t = Fd",
+      3
     ],
-    6: ["What is net force?", "The forwards force is the greatest", "The force a net has", "All forces on an object are negative", "All forces on an object equal 0", "All forces on an object equal 0", 4
+    6: [
+      "What is net force?",
+      "The forwards force is the greatest",
+      "The force a net has",
+      "All forces on an object are negative",
+      "All forces on an object equal 0",
+      "All forces on an object equal 0", 4
     ],
-    7: ["What is work?", "Force x distance", "Force / time", "Mass x Accerlation", "The place you go to get money", "Force x distance", 1
+    7: [
+      "What is work?",
+      "Force x distance",
+      "Force / time",
+      "Mass x Accerlation",
+      "The place you go to get money",
+      "Force x distance",
+      1
     ],
-    8: ["What is the formula for power?", "P = W/t", "P = Fd", "P = 1/2mv2", "P = ma", "P = W/t", 1
+    8: [
+      "What is the formula for power?",
+      "P = W/t", "P = Fd", "P = 1/2mv2",
+      "P = ma",
+      "P = W/t",
+      1
     ]
 }
 
@@ -84,47 +137,159 @@ class QuizWindow:
     #function to create window for questions and answers.
     def __init__(self, parent):
 
-      self.quiz_frame = Frame(parent, background = background_colour, padx = 150, pady = 170)
+      self.quiz_frame = Frame(
+          parent, background = background_colour,
+          padx = 150,
+          pady = 170
+          )
       self.quiz_frame.grid()
 
-      self.question_label = Label(self.quiz_frame, text = answer_bank[qnum][0], background = text_box_colour, borderwidth = 2, relief = "raised", height = 3, width = 40)
-      self.question_label.grid(row = 1, padx = 10, pady = 10)
+      self.question_label = Label(
+          self.quiz_frame,
+          text = answer_bank[qnum][0],
+          background = text_box_colour,
+          borderwidth = 2,
+          relief = "raised",
+          height = 3,
+          width = 40
+          )
+      self.question_label.grid(row = 1,
+          padx = 10,
+          pady = 10
+          )
 
       self.choice_variable = IntVar()
 
       #radiobutton and answer group 1
-      self.radio_button1 = Radiobutton(self.quiz_frame, background = button_colour, value = 1, padx = 10, pady = 10, variable = self.choice_variable)
-      self.radio_button1.grid(row = 2, sticky = W, pady = 3)
+      self.radio_button1 = Radiobutton(
+          self.quiz_frame,
+          background = text_box_colour,
+          value = 1,
+          padx = 10,
+          pady = 10,
+          variable = self.choice_variable
+          )
+      self.radio_button1.grid(
+          row = 2,
+          sticky = W,
+          pady = 3
+          )
 
-      self.answer1 = Label(text = answer_bank[qnum][1], background = button_colour, borderwidth = 2, relief = "raised")
-      self.answer1.place(width = 200, height = 40, x = 250, y = 242)
+      self.answer1 = Label(
+          text = answer_bank[qnum][1],
+          background = text_box_colour,
+          borderwidth = 2,
+          relief = "raised"
+          )
+      self.answer1.place(width = 200,
+          height = 40,
+          x = 250,
+          y = 242
+          )
 
       #radiobutton and answer group 2
-      self.radio_button2 = Radiobutton(self.quiz_frame, background = button_colour, value = 2, padx = 10,  pady = 10, variable = self.choice_variable)
-      self.radio_button2.grid(row = 3, sticky = W, pady = 3)
+      self.radio_button2 = Radiobutton(
+          self.quiz_frame,
+          background = text_box_colour,
+          value = 2,
+          padx = 10, 
+          pady = 10,
+          variable = self.choice_variable
+          )
+      self.radio_button2.grid(row = 3,
+          sticky = W,
+          pady = 3
+          )
 
-      self.answer2 = Label(text = answer_bank[qnum][2], background = button_colour, borderwidth = 2, relief = "raised")
-      self.answer2.place(width = 200, height = 40, x = 250, y = 292)
+      self.answer2 = Label(
+          text = answer_bank[qnum][2],
+          background = text_box_colour,
+          borderwidth = 2,
+          relief = "raised"
+          )
+      self.answer2.place(width = 200,
+          height = 40,
+          x = 250,
+          y = 292
+          )
 
       #radiobutton and answer group 3
-      self.radio_button3 = Radiobutton(self.quiz_frame, background = button_colour, value = 3, padx = 10, pady = 10, variable = self.choice_variable)
-      self.radio_button3.grid(row = 4, sticky = W, pady = 3)
+      self.radio_button3 = Radiobutton(
+          self.quiz_frame,
+          background = text_box_colour,
+          value = 3,
+          padx = 10,
+          pady = 10,
+          variable = self.choice_variable
+          )
+      self.radio_button3.grid(row = 4,
+          sticky = W,
+          pady = 3
+          )
 
-      self.answer3 = Label(text = answer_bank[qnum][3], background = button_colour, borderwidth = 2, relief = "raised")
-      self.answer3.place(width = 200, height = 40, x = 250, y = 342)
+      self.answer3 = Label(
+          text = answer_bank[qnum][3],
+          background = text_box_colour,
+          borderwidth = 2,
+          relief = "raised"
+          )
+      self.answer3.place(
+          width = 200,
+          height = 40,
+          x = 250,
+          y = 342
+          )
 
       #radiobutton and answer group 4
-      self.radio_button4 = Radiobutton(self.quiz_frame, background = button_colour, value = 4, padx = 10, pady = 10, variable = self.choice_variable)
-      self.radio_button4.grid(row = 5, sticky = W, pady = 3)
+      self.radio_button4 = Radiobutton(
+          self.quiz_frame,
+          background = text_box_colour,
+          value = 4,
+          padx = 10,
+          pady = 10,
+          variable = self.choice_variable
+          )
+      self.radio_button4.grid(
+          row = 5,
+          sticky = W,
+          pady = 3
+          )
 
-      self.answer4 = Label(text = answer_bank[qnum][4], background = button_colour, borderwidth = 2, relief = "raised")
-      self.answer4.place(width = 200, height = 40, x = 250, y = 392)
+      self.answer4 = Label(
+          text = answer_bank[qnum][4],
+          background = text_box_colour,
+          borderwidth = 2,
+          relief = "raised"
+          )
+      self.answer4.place(
+          width = 200,
+          height = 40,
+          x = 250,
+          y = 392
+          )
 
-      self.quiz_continue = Button(self.quiz_frame, text = "Confirm", background = button_colour , command  = self.test_progress)
-      self.quiz_continue.grid(row = 7, padx = 5, pady = 10)
+      self.quiz_continue = Button(
+          self.quiz_frame,
+          text = "Confirm",
+          background = button_colour ,
+          command  = self.test_progress
+          )
+      self.quiz_continue.grid(
+          row = 7,
+          padx = 5,
+          pady = 10
+          )
 
-      self.score_label = Label(self.quiz_frame, text = "Score", background = background_colour)
-      self.score_label.grid(row = 8, padx = 10, pady = 1)
+      self.score_label = Label(
+          self.quiz_frame,
+          text = "Score",
+          background = background_colour
+          )
+      self.score_label.grid(
+          row = 8,
+          padx = 10,
+          pady = 1
+          )
 
 #class to show endsceen with options to close program and play again
 class EndScreen:
@@ -139,17 +304,54 @@ class EndScreen:
 
   def __init__(self, parent):
 
-    self.final_frame = Frame(parent, background = background_colour, padx = 150, pady = 170)
+    self.final_frame = Frame(
+        parent,
+        background = background_colour,
+        padx = 150,
+        pady = 170
+        )
     self.final_frame.grid()
 
-    self.ending_text = Label(self.final_frame, text = "Well done, you got {} out of 8 questions right" .format(score), background = text_box_colour, borderwidth = 2, relief = "raised", height = 2, width = 50)
-    self.ending_text.grid(row = 0, pady = 0, padx = 20)
+    self.ending_text = Label(
+        self.final_frame,
+        text = "Well done, you got {} out of 8 questions right" .format(score),
+        background = text_box_colour,
+        borderwidth = 2,
+        relief = "raised",
+        height = 2,
+        width = 50
+        )
+    self.ending_text.grid(
+        row = 0,
+        pady = 0,
+        padx = 20
+        )
 
-    self.play_again_button = Button(self.final_frame, text = "Play Again?", background = button_colour, command = self.PlayAgain, width = 12, height = 1)
-    self.play_again_button.place(x = 210, y = 60)
+    self.play_again_button = Button(
+        self.final_frame,
+        text = "Play Again?",
+        background = button_colour,
+        command = self.PlayAgain,
+        width = 12,
+        height = 1
+        )
+    self.play_again_button.place(
+        x = 210,
+        y = 60
+        )
 
-    self.leave_button = Button(self.final_frame, text = "Exit", background = button_colour, command = self.Leave, width = 12, height = 1)
-    self.leave_button.place(x = 80, y = 60)
+    self.leave_button = Button(
+        self.final_frame,
+        text = "Exit",
+        background = button_colour,
+        command = self.Leave,
+        width = 12,
+        height = 1
+        )
+    self.leave_button.place(
+        x = 80,
+        y = 60
+        )
 
 #class to check to make sure the user wants to close the program
 class ExitProgram:
@@ -164,17 +366,54 @@ class ExitProgram:
 
   def __init__(self, parent):
 
-    self.close_frame = Frame(parent, background = background_colour, padx = 150, pady = 170)
+    self.close_frame = Frame(
+        parent,
+        background = background_colour, 
+        padx = 150, 
+        pady = 170
+        )
     self.close_frame.grid()
 
-    self.confirm_text = Label(self.close_frame, text = "Are you sure you want to exit?", background = text_box_colour, borderwidth = 2, relief = "raised", height = 2, width = 30)
-    self.confirm_text.grid(row = 0, pady = 0, padx = 20)
+    self.confirm_text = Label(
+        self.close_frame, 
+        text = "Are you sure you want to exit?", 
+        background = text_box_colour, 
+        borderwidth = 2,
+        relief = "raised", 
+        height = 2, 
+        width = 30
+        )
+    self.confirm_text.grid(
+        row = 0, 
+        pady = 0, 
+        padx = 20
+        )
 
-    self.confirm_button = Button(self.close_frame, text = "Confirm", background = button_colour, command = self.Confirm, width = 10, height = 1)
-    self.confirm_button.place(x = 140, y = 60)
+    self.confirm_button = Button(
+        self.close_frame, 
+        text = "Confirm", 
+        background = button_colour, 
+        command = self.Confirm, 
+        width = 10, 
+        height = 1
+        )
+    self.confirm_button.place(
+        x = 140, 
+        y = 60
+        )
 
-    self.cancel_button = Button(self.close_frame, text = "Cancel", background = button_colour, command = self.Cancel, width = 10, height = 1)
-    self.cancel_button.place(x = 30, y = 60)
+    self.cancel_button = Button(
+        self.close_frame, 
+        text = "Cancel", 
+        background = button_colour, 
+        command = self.Cancel, 
+        width = 10, 
+        height = 1
+        )
+    self.cancel_button.place(
+        x = 30, 
+        y = 60
+        )
 
 #class to create the home/main window
 class OpenWindow:
@@ -183,32 +422,87 @@ class OpenWindow:
     self.open_frame.destroy()
     ExitProgram(root)
 
-  def NameList(self):
+  def QuizBegin(self):
     name = self.input_box.get()
-    names.append(name)
-    print (names)
-    self.open_frame.destroy()
-    QuizWindow(root)
+    if len(name) <= 15 and len(name) >= 3:
+      names.append(name)
+      print (names)
+      self.open_frame.destroy()
+      QuizWindow(root)
+    else:
+      self.name_input_label.config(text = "3 - 15 Characters Please")
 
   def __init__(self, parent):
 
-    self.open_frame = Frame(parent, background = background_colour, padx = 300, pady = 200)
+    self.open_frame = Frame(
+        parent, 
+        background = background_colour, 
+        padx = 300, 
+        pady = 200
+        )
     self.open_frame.grid()
 
-    self.heading = Label(self.open_frame, text = "NCEA Level 2 Mechanics Quiz", background = text_box_colour, borderwidth = 2, relief = "raised", height = 3, width = 40)
-    self.heading.place(x = -50, y = -75)
+    self.heading = Label(
+        self.open_frame, 
+        text = "NCEA Level 2 Mechanics Quiz", 
+        background = text_box_colour, 
+        borderwidth = 2, 
+        relief = "raised", 
+        height = 3, 
+        width = 40
+        )
+    self.heading.place(
+        x = -50, 
+        y = -75
+        )
 
-    self.name_input_label = Label(self.open_frame, text = "Please Enter Your Name", background = text_box_colour, borderwidth = 2, relief = "raised", height = 2, width = 20)
-    self.name_input_label.grid(row = 1, padx = 20, pady = 20)
+    self.name_input_label = Label(
+        self.open_frame, 
+        text = "Please Enter Your Name", 
+        background = text_box_colour, 
+        borderwidth = 2, 
+        relief = "raised", 
+        height = 2,
+        width = 20
+        )
+    self.name_input_label.grid(
+        row = 1, 
+        padx = 20, 
+        pady = 20
+        )
 
     self.input_box = Entry(self.open_frame)
-    self.input_box.grid(row = 2, padx = 20, pady = 20)
+    self.input_box.grid(
+        row = 2, 
+        padx = 20, 
+        pady = 20
+        )
 
-    self.continue_button = Button(self.open_frame, text = "Play", command = self.NameList, background = button_colour)
-    self.continue_button.place(width = 75, height = 30, x = 50, y = 140)
+    self.continue_button = Button(
+        self.open_frame, 
+        text = "Play", 
+        command = self.QuizBegin, 
+        background = button_colour
+        )
+    self.continue_button.place(
+          width = 75, 
+          height = 30,
+          x = 50, 
+          y = 140
+          )
     
-    self.exit_button = Button(self.open_frame, text = "Exit", background = button_colour, command = self.CloseProgram)
-    self.exit_button.place(width = 75, height = 30, x = 50, y = 190)
+    self.exit_button = Button(
+        self.open_frame, 
+        text = "Exit", 
+        background = button_colour, 
+        command = self.CloseProgram
+        )
+    self.exit_button.place(
+        width = 75, 
+        height = 30, 
+        x = 50,
+        y = 190
+        )
 
 #function to control answer buttons and qustion
 def questions_setup(self):
